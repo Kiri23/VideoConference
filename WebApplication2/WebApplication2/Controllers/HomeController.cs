@@ -35,6 +35,7 @@ namespace WebApplication2.Controllers
         {
             ViewBag.Message = "Your application description page.";
             var jspn = "";
+            var jsn = " ";
             const string WEBSERVICE_URL = "https://api.clickmeeting.com/v1/conferences/active";
             try
             {
@@ -55,9 +56,9 @@ namespace WebApplication2.Controllers
                             var jsonResponse = sr.ReadToEnd();
                               
                             Console.WriteLine(String.Format("Response: {0}", jsonResponse));
-                            // jspn += String.Format(;
-                            var sjss = "sgsgs";
-                            var shssg = "tghius s";
+                            jspn += String.Format("Response: {0}", jsonResponse);
+                            jsn += jsonResponse;
+                            
                         }
                     }
                 }
@@ -68,7 +69,7 @@ namespace WebApplication2.Controllers
             }
 
 
-            return Content(jspn);
+            return Content(jsn);
         }
 
         public ActionResult Contact()
