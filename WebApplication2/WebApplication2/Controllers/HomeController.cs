@@ -1,4 +1,6 @@
-﻿using System;
+﻿using clickMeetingStandalone.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,6 +38,7 @@ namespace WebApplication2.Controllers
             ViewBag.Message = "Your application description page.";
             var jspn = "";
             var jsn = " ";
+             
             const string WEBSERVICE_URL = "https://api.clickmeeting.com/v1/conferences/active";
             try
             {
@@ -58,7 +61,8 @@ namespace WebApplication2.Controllers
                             Console.WriteLine(String.Format("Response: {0}", jsonResponse));
                             jspn += String.Format("Response: {0}", jsonResponse);
                             jsn += jsonResponse;
-                            
+                            var jsonresponse = JsonConvert.DeserializeObject<List<MeetingRoom>>(jsonResponse);
+
                         }
                     }
                 }
