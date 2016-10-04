@@ -55,7 +55,7 @@ namespace WebApplication2.Controllers
                             var jsonResponse = sr.ReadToEnd();
                               
                             Console.WriteLine(String.Format("Response: {0}", jsonResponse));
-                            jspn += jsonResponse;
+                            // jspn += String.Format(;
                         }
                     }
                 }
