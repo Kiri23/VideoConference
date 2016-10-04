@@ -4,6 +4,7 @@ namespace clickMeetingStandalone.Models
 {
     public class Conferences
     {
+
         public long id { get; set; }
         public string room_type { get; set; }
         public long room_pin { get; set; }

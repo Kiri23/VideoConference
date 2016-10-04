@@ -40,15 +40,18 @@ namespace clickMeetingStandalone.Models
              var response = client.Execute<MeetingRoom>(request);
 
             // codigo mio
-            // content = response.Content;
+             content = response.Content; 
 
             // verificar en donde esta mal el modelo 
-            //var jsonresponse = JsonConvert.DeserializeObject<MeetingRoom>(content);
+            var jsonresponse = JsonConvert.DeserializeObject<List<MeetingRoom>>(content); 
+            
 
 
-           // RestResponse<MeetingRoom> response2 = (RestResponse<MeetingRoom>)client.Execute<MeetingRoom>(request)
+            // Usando RestSharp      
+           //RestResponse<MeetingRoom> response2 = (RestResponse<MeetingRoom>)client.Execute<MeetingRoom>(request);  
+           // el error en este es que la propiedad de data tiene que tener el modelo de Json pero me devuelve nullo el ob=bjeto de data
           // name = response2.Data.active_conferences; 
-            //  MeetingRoom td = new JsonDeserializer().Deserialize<MeetingRoom>(response2);
+          //  MeetingRoom td = new JsonDeserializer().Deserialize<MeetingRoom>(response2);
 
 
 
