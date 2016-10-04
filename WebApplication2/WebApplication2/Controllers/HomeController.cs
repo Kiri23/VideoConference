@@ -18,6 +18,7 @@ namespace WebApplication2.Controllers
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
+
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
@@ -25,15 +26,47 @@ namespace WebApplication2.Controllers
                 html = reader.ReadToEnd();
             }
 
-            return Content(html);
+            return View();
+            // return Content(html);
 
         }
 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
+            var jspn = "";
+            const string WEBSERVICE_URL = "https://api.clickmeeting.com/v1/conferences/active";
+            try
+            {
+                var webRequest = System.Net.WebRequest.Create(WEBSERVICE_URL);
+                if (webRequest != null)
+                {
+                    webRequest.Method = "GET";
+                    webRequest.Timeout = 20000;
+                    webRequest.ContentType = "application/json";
+                    webRequest.Headers.Add("X-Api-Key", "usf0dae1141344d638413f5f63edb8edf0ac368ddc");
 
-            return View();
+                   
+                    
+                    using (System.IO.Stream s = webRequest.GetResponse().GetResponseStream())
+                    {
+                        using (System.IO.StreamReader sr = new System.IO.StreamReader(s))
+                        {
+                            var jsonResponse = sr.ReadToEnd();
+                              
+                            Console.WriteLine(String.Format("Response: {0}", jsonResponse));
+                            jspn += jsonResponse;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+
+
+            return Content(jspn);
         }
 
         public ActionResult Contact()
