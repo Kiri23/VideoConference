@@ -32,7 +32,8 @@ namespace WebApplication2.Controllers
             // return Content(html);
 
         }
-
+        
+        // Estes el Action que funciona y me da un response en formato JSON pero cuando lo deserializo no me lo adjusta al modelo. 
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -61,6 +62,9 @@ namespace WebApplication2.Controllers
                             Console.WriteLine(String.Format("Response: {0}", jsonResponse));
                             jspn += String.Format("Response: {0}", jsonResponse);
                             jsn += jsonResponse;
+                             // esta Linea es la que no me funciona no hace el deserialize bien. si lo corres en 
+                             // debug Mode la variable jsonresponse contiene un objeto nullo de MeetingRoom 
+                             
                             var jsonresponse = JsonConvert.DeserializeObject<List<MeetingRoom>>(jsonResponse);
 
                         }
