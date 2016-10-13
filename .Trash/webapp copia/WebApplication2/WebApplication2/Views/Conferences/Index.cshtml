@@ -1,0 +1,54 @@
+﻿@model WebApplication2.Models.RootObjectResponse
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<h2> @Model.name  this is the model of the room </h2>
+<h1> @Model.room_type this is the type of the roo </h1>
+@Model.embed_room_url
+
+
+@{ var room_url = @Model.room_url; 
+
+    var clickMeetingRoom = room_url + "?popup=off&lang=en&xlang=" ;
+
+  }
+
+<button id="mylink" onclick="showIframeClickMeeting()">click me to open ClickMeeting Room </button>
+
+@* este es el iframe que muestra el Conference Room que al principio esta hidden *@
+<iframe id="forPostyouradd" hidden data-src=@clickMeetingRoom src="about:blank" width="500" height="200" style="background:#ffffff">
+
+                                                            
+</iframe>
+
+
+
+<script type="text/javascript">
+
+     @* Muestra el Iframe on ButtonClick *@
+    function showIframeClickMeeting() {
+        var iframe = $("#forPostyouradd");
+        iframe.attr("src", iframe.data("src"));
+       // iframe.show();
+        iframe.toggle();
+        iframe.width(1028);
+        iframe.height(728);
+        }
+</script>
+
+
+@* Se puede hacer de una manera diferente usando Html.beginForm*@
+<form action="Conferences/createConference" method="post">
+    First name:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    Last name:<br>
+    <input type="text" name="lastname" value="Mouse">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
+
