@@ -1,0 +1,75 @@
+extends layout
+
+block content
+  h1 Add visitors Page
+  p Fill the form with the provided information of the visitors.
+  table#mainT
+    tr
+      td
+        .inputGroupContainer.container
+          .row
+            .input-group.col-lg-4.col-md-4
+             span.input-group-addon
+               i.glyphicon.glyphicon-user
+             input.form-control(name='nombre', placeholder='Nombre', type='text')
+            .input-group.col-lg-4.col-md-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-pencil
+              input.form-control(name='entradopor', placeholder='C3TEC Admin', type='text')
+            .input-group.col-lg-4.col-md-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='encargado', placeholder='Persona encargado', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-map-marker
+              input.form-control(name='pueblo', placeholder='Pueblo', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-education
+              input.form-control(name='grado', placeholder='Grado', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-tasks
+              input.form-control(name='clasificacion', placeholder='Clasificacion', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='maestros', placeholder='Maestros', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='nocharge', placeholder='Sin Cargo', type='text')
+      td
+        .inputGroupContainer.container
+          .row
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-leaf
+              input.form-control(name='ofrecimiento', placeholder='Ofrecimiento', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-list-alt
+              input.form-control(name='cantidad', placeholder='Cantidad', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='ninos', placeholder='Niños', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='adultos', placeholder='Adultos', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-user
+              input.form-control(name='seniors', placeholder='Seniors', type='text')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-heart
+              input.form-control(name='impedidos', placeholder='Condiciones Especial')
+            .input-group.col-lg-4
+              span.input-group-addon
+                i.glyphicon.glyphicon-calendar
+              input.form-control(name='eventos', placeholder='Eventos', type='text')
+  #buttoncont
+    button.btn.btn-success#anadir Submit
